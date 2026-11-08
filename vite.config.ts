@@ -1,9 +1,12 @@
 import { defineConfig } from "vite";
+import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
-  // GitHub Pages project-site paths include the repository name.
   base: "/wterm-test/",
-  build: {
-    target: "esnext",
+  resolve: {
+    alias: {
+      "node:zlib": fileURLToPath(new URL("./src/browser-zlib.ts", import.meta.url)),
+    },
   },
+  build: { target: "esnext" },
 });
