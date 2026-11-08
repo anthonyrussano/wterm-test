@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0e14" />
+    <meta name="description" content="A terminal demo that runs Ghostty WebAssembly and just-bash entirely in your browser." />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <title>Ghostty + Bash — browser terminal</title>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="identity">
+          <div class="mark" aria-hidden="true">&gt;_</div>
+          <div>
+            <div class="brand">wterm <span class="brand-divider">/</span> ghostty</div>
+            <div class="subtitle">WebAssembly terminal playground</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span class="mode"><span class="online-dot"></span> browser only</span>
+          <a class="icon-link" target="_blank" rel="noopener noreferrer" href="https://github.com/vercel-labs/wterm" aria-label="View wterm on GitHub">source <span aria-hidden="true">↗</span></a>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="intro" aria-labelledby="intro-title">
+          <span class="eyebrow">STATIC DEMO · NO BACKEND</span>
+          <h1 id="intro-title">A terminal that lives in your browser.</h1>
+          <p>Powered by <strong>Ghostty's VT engine</strong> compiled to WebAssembly, rendered with <strong>wterm</strong>, and connected to <strong>just-bash</strong> for an interactive virtual shell.</p>
+        </section>
+
+        <section class="terminal-panel" aria-label="Interactive terminal">
+          <div class="terminal-titlebar">
+            <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="terminal-label">visitor@wterm: ~</div>
+            <div class="terminal-tools">
+              <span id="runtime-status" class="runtime-status" role="status">Loading Ghostty…</span>
+              <button id="restart" class="restart" type="button" title="Restart the virtual shell">↻ Reset</button>
+            </div>
+          </div>
+          <div class="terminal-container">
+            <div id="terminal" aria-label="Terminal input and output"></div>
+            <div id="terminal-error" class="terminal-error" role="alert" hidden></div>
+          </div>
+        </section>
+
+        <div class="footer-grid">
+          <section class="hints" aria-labelledby="hints-title">
+            <h2 id="hints-title">Try these commands</h2>
+            <div class="commands"><code>help</code><code>ls -la</code><code>cat README.md</code><code>bash hello.sh</code><code>pwd</code></div>
+            <p>Click inside the terminal and type a command. Use ↑/↓ for history and Tab for completion.</p>
+          </section>
+          <aside class="notice">
+            <span class="notice-title">Isolated by design</span>
+            <p>Commands run in an in-memory virtual filesystem. This terminal cannot access your computer, SSH sessions, or a real Linux server.</p>
+          </aside>
+        </div>
+      </main>
+      <footer class="site-footer">A community experiment using <a href="https://github.com/vercel-labs/wterm" target="_blank" rel="noopener noreferrer">wterm</a> and <a href="https://github.com/vercel-labs/just-bash" target="_blank" rel="noopener noreferrer">just-bash</a>.</footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

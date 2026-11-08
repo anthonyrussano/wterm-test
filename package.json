@@ -1,0 +1,22 @@
+{
+  "name": "wterm-ghostty-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/verify-build.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@wterm/dom": "0.5.9",
+    "@wterm/ghostty": "0.5.9",
+    "@wterm/just-bash": "0.5.9",
+    "just-bash": "3.4.2"
+  },
+  "devDependencies": {
+    "typescript": "6.0.2",
+    "vite": "6.3.5"
+  }
+}
